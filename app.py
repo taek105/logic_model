@@ -2,10 +2,6 @@ from init import xor_model, or_model, not_model
 
 from fastapi import FastAPI, Query
 
-# print(f"ormodel 0,0: {or_model.predict([0,0])}")
-# print(f"notmodel 1: {not_model.predict(1)}")
-# print(f"xormodel 1,1: {xor_model.predict([1,1])}")
-
 app = FastAPI()
 
 @app.get("/or")
