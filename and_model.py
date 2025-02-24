@@ -33,7 +33,7 @@ class ANDModel(nn.Module):
             if (epoch+1) % 2000 == 0:
                 print(f"Epoch [{epoch+1}], Loss: {loss.item():.6f}")
 
-        print("\nXOR 연산 테스트:")
+        print("\nAND 연산 테스트:")
         mismatch_found = self.test()
         
         if mismatch_found:
@@ -56,7 +56,7 @@ class ANDModel(nn.Module):
         return 1 if output.item() > 0.5 else 0
     
     def test(self):
-        print("\nXOR 연산 테스트:")
+        print("\nAND 연산 테스트:")
         mismatch_found = False
         with torch.no_grad():
             for i in range(len(inputs)):
@@ -65,7 +65,7 @@ class ANDModel(nn.Module):
                 pred_label = int(pred_val.item() >= 0.5)
                 correct_label = int(outputs[i].item())
 
-                print(f"XOR{inputs[i].tolist()}, "
+                print(f"AND{inputs[i].tolist()}, "
                       f"예측: {pred_val.item():.4f}, "
                       f"예측정답: {pred_label}, "
                       f"정답: {correct_label}")
@@ -84,7 +84,7 @@ class ANDModel(nn.Module):
                 pred_label = int(pred_val.item() >= 0.5)
                 correct_label = int(outputs[i].item())
 
-                result[f"XOR{inputs[i].tolist()}"] = {
+                result[f"AND{inputs[i].tolist()}"] = {
                     "예측정답": pred_label,
                     "정답": correct_label
                 }
