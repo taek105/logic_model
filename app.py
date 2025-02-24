@@ -1,4 +1,4 @@
-from init import xor_model, or_model, not_model
+from init import xor_model, or_model, not_model, and_model
 
 from fastapi import FastAPI, Query
 
@@ -10,12 +10,12 @@ def root():
 
 @app.get("/and")
 def or_inference(x1: int = Query(), x2: int = Query()):
-    result = or_model.predict([x1, x2])
+    result = and_model.predict([x1, x2])
     return {"x1": x1, "x2": x2, "AND result": result}
 
 @app.get("/and/test")
 def or_test():
-    return or_model.testJson()
+    return and_model.testJson()
 
 @app.get("/or")
 def or_inference(x1: int = Query(), x2: int = Query()):
